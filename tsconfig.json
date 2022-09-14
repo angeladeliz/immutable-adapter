@@ -2,15 +2,17 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
     "paths": {
-      "immutable-adapter": [
-        "dist/immutable-adapter"
-      ]
+      // "immutable-adapter": [
+      //   "dist/immutable-adapter"
+      // ],
+      "immutable-adapter": ["src"],
+      "immutable-adapter/*": ["src/*"]
     },
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
