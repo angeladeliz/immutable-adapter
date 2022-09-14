@@ -25,16 +25,16 @@ export class ImmutableStateContext<T extends any> implements StateContext<T> {
   }
 
   public setState(val: T | StateOperator<T>): T {
-    let state: T;
+    let state: any;
 
     if (typeof val === 'function') {
-      let newState: T;
+      let newState: any;
       const oldState: T = createDraft(this.ctx.getState() as any) as T;
       const operator: StateOperator<T> = val as StateOperator<T>;
       const mutatedOldState: T = operator(oldState);
 
       if (this.frozenState === mutatedOldState) {
-        newState = finishDraft(this.frozenState) as any;
+        newState = finishDraft(this.frozenState);
         finishDraft(oldState);
       } else {
         const mutateOutsideOperator: boolean = oldState !== mutatedOldState;
