@@ -3,5 +3,50 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "immutable-adapter": {
+      "projectType": "library",
+      "root": "projects/immutable-adapter",
+      "sourceRoot": "projects/immutable-adapter/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/immutable-adapter/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/immutable-adapter/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/immutable-adapter/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/immutable-adapter/src/test.ts",
+            "tsConfig": "projects/immutable-adapter/tsconfig.spec.json",
+            "karmaConfig": "projects/immutable-adapter/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/immutable-adapter/**/*.ts",
+              "projects/immutable-adapter/**/*.html"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
