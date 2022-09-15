@@ -8,10 +8,9 @@
     "strict": true,
     "noImplicitOverride": true,
     "paths": {
-      // "immutable-adapter": [
-      //   "dist/immutable-adapter"
-      // ],
-      "immutable-adapter": ["src"],
+      "immutable-adapter": [
+        "dist/immutable-adapter"
+      ],
       "immutable-adapter/*": ["src/*"]
     },
     "noPropertyAccessFromIndexSignature": true,
